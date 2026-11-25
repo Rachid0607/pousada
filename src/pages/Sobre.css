@@ -1,0 +1,172 @@
+/* ---------- História ---------- */
+
+.sobre__historia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.sobre__imagens {
+  position: relative;
+  padding-bottom: 3rem;
+  padding-right: 3rem;
+}
+
+.sobre__imagem-principal {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+}
+
+.sobre__imagem-detalhe {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 6px solid var(--bege);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+}
+
+.sobre__texto .secao__titulo {
+  margin-bottom: 1.2rem;
+}
+
+.sobre__texto p {
+  margin-bottom: 1rem;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ---------- Números ---------- */
+
+.sobre__numeros {
+  padding: 3rem 0;
+  background: var(--madeira);
+  color: var(--bege);
+}
+
+.sobre__numeros-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.sobre__numeros strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--branco);
+}
+
+.sobre__numeros span {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ---------- Missão, visão e valores ---------- */
+
+.sobre__valores {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.valor {
+  position: relative;
+  padding: 2.2rem 2rem;
+  background: var(--bege);
+  border-radius: var(--raio);
+  border-top: 4px solid var(--verde-escuro);
+}
+
+.valor__numero {
+  position: absolute;
+  top: 1rem;
+  right: 1.4rem;
+  font-family: var(--fonte-titulo);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--bege-escuro);
+}
+
+.valor h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.valor p {
+  color: var(--texto-suave);
+}
+
+/* ---------- Localização ---------- */
+
+.sobre__localizacao {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.sobre__endereco {
+  display: flex;
+  gap: 0.7rem;
+  margin: 1.5rem 0 2rem;
+  font-weight: 700;
+  color: var(--verde-escuro);
+}
+
+.sobre__endereco svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--madeira);
+}
+
+.sobre__mapa {
+  overflow: hidden;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+  aspect-ratio: 4 / 3;
+  background: var(--bege-escuro);
+}
+
+.sobre__mapa iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .sobre__historia,
+  .sobre__localizacao {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .sobre__imagens {
+    max-width: 520px;
+  }
+
+  .sobre__valores {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre__numeros-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sobre__imagens {
+    padding-right: 1.5rem;
+    padding-bottom: 2rem;
+  }
+}

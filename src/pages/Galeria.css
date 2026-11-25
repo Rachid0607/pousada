@@ -1,0 +1,88 @@
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+/* Algumas fotos ocupam mais espaço para dar ritmo ao grid */
+.galeria__item:nth-child(6n + 1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galeria__item:nth-child(6n + 4) {
+  grid-row: span 2;
+}
+
+.galeria__item {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  border-radius: var(--raio);
+  background: var(--bege-escuro);
+  cursor: zoom-in;
+}
+
+.galeria__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.galeria__legenda {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 1rem 0.9rem;
+  background: linear-gradient(transparent, rgba(15, 28, 20, 0.85));
+  color: var(--bege);
+  font-family: var(--fonte-titulo);
+  font-size: 1.05rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.galeria__item:hover img,
+.galeria__item:focus-visible img {
+  transform: scale(1.08);
+}
+
+.galeria__item:hover .galeria__legenda,
+.galeria__item:focus-visible .galeria__legenda {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 0.6rem;
+  }
+
+  .galeria__item:nth-child(6n + 4) {
+    grid-row: span 1;
+  }
+
+  /* No celular não há hover, então a legenda fica sempre visível */
+  .galeria__legenda {
+    opacity: 1;
+    transform: none;
+    padding: 1.5rem 0.6rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,225 @@
+.reservas__confirmacao {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-right: 3rem;
+}
+
+.reservas__fechar-alerta {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--sucesso);
+  cursor: pointer;
+}
+
+.reservas__layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.reservas__form {
+  padding: 2.2rem;
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.reservas__titulo,
+.resumo__titulo {
+  font-size: 1.6rem;
+}
+
+.reservas__form .btn {
+  justify-self: start;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Resumo ---------- */
+
+.resumo {
+  position: sticky;
+  top: calc(var(--altura-header) + 1.5rem);
+  padding: 2rem;
+  background: var(--verde-escuro);
+  color: var(--bege);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+}
+
+.resumo__titulo {
+  color: var(--bege);
+  margin-bottom: 1.2rem;
+}
+
+.resumo__imagem {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+.resumo__quarto {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.resumo__vazio {
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.resumo__vazio a {
+  color: var(--madeira-clara);
+}
+
+.resumo__lista div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dashed rgba(244, 237, 225, 0.2);
+}
+
+.resumo__lista dt {
+  opacity: 0.8;
+}
+
+.resumo__lista dd {
+  font-weight: 700;
+}
+
+.resumo__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 1.2rem;
+}
+
+.resumo__total strong {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  color: var(--madeira-clara);
+}
+
+.resumo__nota {
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* ---------- Minhas reservas ---------- */
+
+.reservas__vazio {
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+.lista-reservas {
+  display: grid;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.item-reserva {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem;
+  background: var(--bege);
+  border: 1px solid var(--bege-escuro);
+  border-radius: var(--raio);
+  animation: surgir 0.35s ease;
+}
+
+.item-reserva__imagem {
+  width: 110px;
+  height: 90px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-reserva__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-reserva__codigo {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--madeira);
+}
+
+.item-reserva h3 {
+  font-size: 1.2rem;
+}
+
+.item-reserva p {
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+.item-reserva__titular {
+  font-size: 0.85rem !important;
+}
+
+.item-reserva__acoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.item-reserva__total {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  color: var(--verde-escuro);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .reservas__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .resumo {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .reservas__form {
+    padding: 1.4rem;
+  }
+
+  .reservas__form .btn {
+    justify-self: stretch;
+  }
+
+  .item-reserva {
+    flex-wrap: wrap;
+  }
+
+  .item-reserva__imagem {
+    width: 80px;
+    height: 70px;
+  }
+
+  .item-reserva__acoes {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

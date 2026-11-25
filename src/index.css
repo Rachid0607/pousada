@@ -1,0 +1,484 @@
+/* ==========================================================
+   Pousada Recanto da Serra — estilos globais
+   Paleta: verde-escuro, bege e madeira
+   ========================================================== */
+
+:root {
+  --verde-escuro: #1f3a2b;
+  --verde: #2f5640;
+  --verde-claro: #6b8f71;
+  --verde-suave: #e3ebe2;
+  --bege: #f4ede1;
+  --bege-escuro: #e6dac4;
+  --madeira: #8b5e3c;
+  --madeira-escura: #5c3d24;
+  --madeira-clara: #c99a6b;
+  --branco: #fffdf9;
+  --texto: #2b2a26;
+  --texto-suave: #6b665c;
+  --erro: #b23b2e;
+  --sucesso: #2f6b45;
+
+  --fonte-titulo: 'Playfair Display', Georgia, serif;
+  --fonte-texto: 'Lato', 'Segoe UI', Arial, sans-serif;
+
+  --raio: 14px;
+  --sombra: 0 6px 24px rgba(31, 58, 43, 0.08);
+  --sombra-forte: 0 16px 40px rgba(31, 58, 43, 0.16);
+  --altura-header: 76px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--bege);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.sem-rolagem {
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonte-titulo);
+  color: var(--verde-escuro);
+  line-height: 1.2;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--madeira);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--madeira-clara);
+  outline-offset: 2px;
+}
+
+/* ---------- Layout ---------- */
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.secao {
+  padding: 5rem 0;
+}
+
+.secao--clara {
+  background: var(--branco);
+}
+
+.secao--verde {
+  background: var(--verde-escuro);
+  color: var(--bege);
+}
+
+.secao--verde h2,
+.secao--verde h3 {
+  color: var(--bege);
+}
+
+.secao__topo {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.secao__selo {
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  color: var(--madeira);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.secao--verde .secao__selo {
+  color: var(--madeira-clara);
+}
+
+.secao__titulo {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.8rem;
+}
+
+.secao__texto {
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+.secao--verde .secao__texto {
+  color: var(--bege-escuro);
+}
+
+.grid-quartos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 2rem;
+}
+
+.centro {
+  text-align: center;
+}
+
+/* ---------- Botões ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn--verde {
+  background: var(--verde-escuro);
+  color: var(--bege);
+}
+
+.btn--verde:hover {
+  background: var(--verde);
+}
+
+.btn--madeira {
+  background: var(--madeira);
+  color: var(--branco);
+}
+
+.btn--madeira:hover {
+  background: var(--madeira-escura);
+}
+
+.btn--contorno {
+  background: transparent;
+  border-color: currentColor;
+  color: var(--verde-escuro);
+}
+
+.btn--contorno:hover {
+  background: var(--verde-escuro);
+  border-color: var(--verde-escuro);
+  color: var(--bege);
+}
+
+.btn--claro {
+  background: transparent;
+  border-color: var(--bege);
+  color: var(--bege);
+}
+
+.btn--claro:hover {
+  background: var(--bege);
+  color: var(--verde-escuro);
+}
+
+.btn--grande {
+  padding: 1rem 2.2rem;
+  font-size: 1.05rem;
+}
+
+.btn--pequeno {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn--perigo {
+  background: transparent;
+  border-color: var(--erro);
+  color: var(--erro);
+}
+
+.btn--perigo:hover {
+  background: var(--erro);
+  color: var(--branco);
+}
+
+/* ---------- Cabeçalho das páginas internas ---------- */
+
+.cabecalho-pagina {
+  padding: 6rem 0 5rem;
+  background-size: cover;
+  background-position: center;
+  color: var(--bege);
+  text-align: center;
+}
+
+.cabecalho-pagina h1 {
+  color: var(--branco);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  margin-bottom: 0.6rem;
+}
+
+.cabecalho-pagina p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.92;
+}
+
+/* ---------- Formulários ---------- */
+
+.formulario {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.formulario__linha {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--verde-escuro);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid var(--bege-escuro);
+  border-radius: 10px;
+  background: var(--branco);
+  color: var(--texto);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--verde-claro);
+  box-shadow: 0 0 0 3px rgba(107, 143, 113, 0.25);
+}
+
+.campo--erro input,
+.campo--erro select,
+.campo--erro textarea {
+  border-color: var(--erro);
+}
+
+.campo__erro {
+  color: var(--erro);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.campo__ajuda {
+  color: var(--texto-suave);
+  font-size: 0.82rem;
+}
+
+.alerta {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--raio);
+  animation: surgir 0.4s ease;
+}
+
+.alerta--sucesso {
+  background: var(--verde-suave);
+  border: 1px solid #b9cdb9;
+  color: var(--sucesso);
+}
+
+.alerta h3 {
+  color: var(--sucesso);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.alerta p {
+  color: var(--texto);
+}
+
+.alerta__icone {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--sucesso);
+  color: var(--branco);
+}
+
+/* ---------- Depoimentos ---------- */
+
+.grid-depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.depoimento {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: rgba(244, 237, 225, 0.06);
+  border: 1px solid rgba(244, 237, 225, 0.15);
+  border-radius: var(--raio);
+}
+
+.depoimento__estrelas {
+  display: flex;
+  gap: 2px;
+  color: var(--madeira-clara);
+  margin-bottom: 1rem;
+}
+
+.depoimento__texto {
+  flex: 1;
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.depoimento__autor {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.depoimento__autor strong,
+.depoimento__autor small {
+  display: block;
+}
+
+.depoimento__autor small {
+  opacity: 0.75;
+}
+
+.depoimento__avatar {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--madeira);
+  color: var(--branco);
+  font-weight: 700;
+}
+
+/* ---------- Animações ---------- */
+
+@keyframes surgir {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 700px) {
+  :root {
+    --altura-header: 66px;
+  }
+
+  .secao {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.1rem;
+  }
+
+  .formulario__linha {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho-pagina {
+    padding: 4rem 0 3.5rem;
+  }
+
+  .grid-quartos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
